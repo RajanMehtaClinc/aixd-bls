@@ -46,4 +46,4 @@ I recommend having the following environment variable for debugging:
 
 
 # Deploying
-For deployment, either look into [deploying a Python app on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app) or [exposing a local server with ngrok](https://dashboard.ngrok.com/get-started).
+For deployment, either look into [deploying a Python app on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app) or [exposing a local server with ngrok](https://ngrok.com/download).
