@@ -3,8 +3,7 @@ from date_webhook.utils.payload import Payload
 
 def handle(request: Payload):
     rb = request.get()
-
-    if not rb.get("session_info"):
+    if "is_authenticated" not in rb.get("session_info"):
         rb["session_info"]["is_authenticated"] = False
         rb["state"] = "identity_verification"
     else:

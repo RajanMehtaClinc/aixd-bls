@@ -4,6 +4,8 @@ from date_webhook.fulfillments import (
     passthrough,
     balance_fulfillment,
     identity_verification_fulfillment,
+    increase_cc_limit_fulfillment,
+    outofscope_fulfillment,
 )
 
 
@@ -34,6 +36,10 @@ FULFILLMENTS = {
         "get_balance_start": identity_verification_fulfillment.handle,
     },
     "confirm_details": {"cs_yes": identity_verification_fulfillment.handle,},
+    "increase_cc_limit": {
+        "increase_cc_limit_start": increase_cc_limit_fulfillment.handle,
+        "ambiguous_amount_start": increase_cc_limit_fulfillment.handle_ambiguous,
+    },
     "*": passthrough.handle,
 }
 
