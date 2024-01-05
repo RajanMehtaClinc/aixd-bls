@@ -18,8 +18,8 @@ def handle_bls_terminal_states(response):
     return response
    
 def get_balance(response):
-    print("### get_balance: ", response["slots"])
-    accounts = {"trading": 20000, "spending": 42, "savings": 12000, "checking": 20000}
+    print("get_balance")
+    accounts = {"trading": 20000, "spend": 42, "saving": 12000, "当座": 20000}
     for slot in response["slots"].values():
         for sub_slot in slot["values"]:
             sub_slot["status"] = "CONFIRMED"
@@ -29,7 +29,7 @@ def get_balance(response):
                     "values": [
                     {
                         "status": "CONFIRMED",
-                        "value": accounts.get(response["slots"]["_ACCOUNT_NAME_"]["values"][0]["tokens"]),
+                        "value": accounts.get(response["slots"]["_ACC_TYPE_"]["values"][0]["tokens"]),
                     }
                     ]
                 }
@@ -187,8 +187,8 @@ def handle(request: Payload):
 
     state_functions = {
         "root": handle_root,
-        "get_balance": get_balance,
-        "funds_transfer": funds_transfer,
+        "acct_get_balance": get_balance,
+        "acc_transfer": funds_transfer,
         "prioritize_multi_intent": handle_root,
         "bls_transition_source": handle_bls_trans,
         "bls_terminal": handle_bls_terminal_states,

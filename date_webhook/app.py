@@ -12,5 +12,6 @@ app = Flask(__name__)
 def handle():
     json_request = request.json
     req = Payload(json_request)
+    print(req.payload)
     fulfill(req)
     return jsonify(req.get())

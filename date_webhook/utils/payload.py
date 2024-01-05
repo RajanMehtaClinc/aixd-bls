@@ -3,11 +3,6 @@
 
 from copy import deepcopy
 
-# TODO(sean): add docstrings
-# TODO(sean): resolving standard
-# TODO(sean): test framework
-# TODO(sean): fullfillment framework
-
 
 class SlotNotFoundException(Exception):
     pass

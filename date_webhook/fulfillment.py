@@ -2,6 +2,7 @@ import werkzeug
 
 from date_webhook.fulfillments import (
     passthrough,
+    passthrough_ja,
     balance_fulfillment,
     identity_verification_fulfillment,
     increase_cc_limit_fulfillment,
@@ -28,10 +29,10 @@ def panic(request):
 
 
 FULFILLMENTS = {
-    "get_balance": {
-        "get_balance_start": balance_fulfillment.handle,
-        "cs_yes": balance_fulfillment.handle,
-    },
+    # "get_balance": {
+    #     "get_balance_start": balance_fulfillment.handle,
+    #     "cs_yes": balance_fulfillment.handle,
+    # },
     "identity_verification": {
         "get_balance_start": identity_verification_fulfillment.handle,
     },
